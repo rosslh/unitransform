@@ -14,11 +14,8 @@ function getHsluv(color) {
 }
 
 function lighten(color, adjustment) {
-  console.log(color);
   color = getHsluv(color);
-  console.log(color);
   color[2] = clamp100(color[2] + adjustment);
-  console.log(color);
   return hsluv.hsluvToHex(color);
 }
 
@@ -42,7 +39,7 @@ function desaturate(color, adjustment) {
 
 function spin(color, adjustment) {
   color = getHsluv(color);
-  const hue = (color[0] + adjustment) % 360;
+  var hue = (color[0] + adjustment) % 360;
   color[0] = hue < 0 ? hue + 360 : hue;
   return hsluv.hsluvToHex(color);
 }
