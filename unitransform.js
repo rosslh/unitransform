@@ -13,6 +13,22 @@ function getHsluv(color) {
   );
 }
 
+function useProperties(modified, modifier, properties) {
+  properties = properties.toLowerCase();
+  if (!/^[hsl]{1,3}$/.test(properties)) {
+    throw new Error(
+      "Properties must be 3 chars and only can include h, s, or l"
+    );
+  }
+  modifiedHsluv = getHsluv(modified);
+  modifierHsluv = getHsluv(modifier);
+  for (var i = 0; i < properties.length; i++) {
+    var index = "hsl".indexOf(properties.charAt(i));
+    modifiedHsluv[index] = modifierHsluv[index];
+  }
+  return hsluv.hsluvToHex(modifiedHsluv);
+}
+
 function lighten(color, adjustment) {
   color = getHsluv(color);
   color[2] = clamp100(color[2] + adjustment);
@@ -49,5 +65,6 @@ module.exports = {
   darken: darken,
   saturate: saturate,
   desaturate: desaturate,
-  spin: spin
+  spin: spin,
+  useProperties: useProperties
 };
