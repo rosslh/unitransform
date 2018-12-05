@@ -29,27 +29,35 @@ function useProperties(modified, modifier, properties) {
   return hsluv.hsluvToHex(modifiedHsluv);
 }
 
+function validateAdjustment(adjust) {
+  return 0 <= adjust <= 1;
+}
+
 function lighten(color, adjustment) {
+  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[2] = clamp100(color[2] + adjustment);
+  color[2] = clamp100(color[2] + color[2] * adjustment);
   return hsluv.hsluvToHex(color);
 }
 
 function darken(color, adjustment) {
+  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[2] = clamp100(color[2] - adjustment);
+  color[2] = clamp100(color[2] - color[2] * adjustment);
   return hsluv.hsluvToHex(color);
 }
 
 function saturate(color, adjustment) {
+  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[1] = clamp100(color[1] + adjustment);
+  color[1] = clamp100(color[1] + color[1] * adjustment);
   return hsluv.hsluvToHex(color);
 }
 
 function desaturate(color, adjustment) {
+  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[1] = clamp100(color[1] - adjustment);
+  color[1] = clamp100(color[1] - color[1] * adjustment);
   return hsluv.hsluvToHex(color);
 }
 
