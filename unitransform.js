@@ -20,8 +20,8 @@ function useProperties(modified, modifier, properties) {
       "Properties must be 3 chars and only can include h, s, or l"
     );
   }
-  modifiedHsluv = getHsluv(modified);
-  modifierHsluv = getHsluv(modifier);
+  var modifiedHsluv = getHsluv(modified);
+  var modifierHsluv = getHsluv(modifier);
   for (var i = 0; i < properties.length; i++) {
     var index = "hsl".indexOf(properties.charAt(i));
     modifiedHsluv[index] = modifierHsluv[index];
