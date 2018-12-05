@@ -1,0 +1,22 @@
+{
+  "name": "unitransform",
+  "description": "A tiny library for visually consistent color transformations",
+  "version": "0.0.1",
+  "maintainers": [
+    {
+      "name": "Ross Hill",
+      "email": "ross@rosshill.ca",
+      "web": "https://rosshill.ca"
+    }
+  ],
+  "bugs": {
+    "web": "https://github.com/rosslh/unitransform/issues"
+  },
+  "dependencies": {
+    "color-rgba": "^2.1.0",
+    "hsluv": "0.0.3"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/rosslh/unitransform",
+  "repository": "https://github.com/rosslh/unitransform"
+}
