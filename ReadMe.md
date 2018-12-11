@@ -1,5 +1,7 @@
 # UniTransform
 
+[![CircleCI](https://circleci.com/gh/rosslh/unitransform/tree/master.svg?style=svg)](https://circleci.com/gh/rosslh/unitransform/tree/master)
+
 Visually **uni**form color **transform**ations through HSLuv color space
 
 ## JavaScript color function library
