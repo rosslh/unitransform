@@ -41,5 +41,7 @@ setLightness(color, 50); // returns hex
 
 setSaturation(color, 50); // returns hex
 
-useProperties(color1, color2, properties); // accepts a permutation of "hsl" as properties, returns hex
+// returns color1 with specified properties replaced the properties of color2
+// accepts a permutation of "hsl" as properties, returns hex
+useProperties(color1, color2, properties);
 ```
