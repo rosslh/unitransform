@@ -1,7 +1,7 @@
 {
   "name": "unitransform",
   "description": "A tiny library for visually uniform color transformations through HSLuv color space",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "maintainers": [
     {
       "name": "Ross Hill",
@@ -16,8 +16,23 @@
     "color-rgba": "^2.1.0",
     "hsluv": "0.0.3"
   },
+  "keywords": [
+    "hsluv",
+    "functions",
+    "uniform",
+    "color",
+    "transformations",
+    "css",
+    "utilities"
+  ],
   "main": "./unitransform.js",
   "license": "MIT",
   "homepage": "https://github.com/rosslh/unitransform",
-  "repository": "https://github.com/rosslh/unitransform"
+  "repository": "https://github.com/rosslh/unitransform",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha test"
+  }
 }

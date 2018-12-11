@@ -5,6 +5,10 @@ function clamp100(num) {
   return Math.min(Math.max(num, 0), 100);
 }
 
+function clampHue(hue) {
+  return (hue < 0 ? hue + 360 : hue) % 360;
+}
+
 function getHsluv(color) {
   return hsluv.rgbToHsluv(
     rgba(color)
@@ -26,53 +30,85 @@ function useProperties(modified, modifier, properties) {
     var index = "hsl".indexOf(properties.charAt(i));
     modifiedHsluv[index] = modifierHsluv[index];
   }
-  return hsluv.hsluvToHex(modifiedHsluv);
+  return formatColor(modifiedHsluv);
 }
 
-function validateAdjustment(adjust) {
-  return 0 <= adjust <= 1;
+function formatColor(color) {
+  return hsluv.hsluvToHex(color);
 }
 
 function lighten(color, adjustment) {
-  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[2] = clamp100(color[2] + color[2] * adjustment);
-  return hsluv.hsluvToHex(color);
+  color[2] = clamp100(color[2] + adjustment);
+  return formatColor(color);
 }
 
 function darken(color, adjustment) {
-  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[2] = clamp100(color[2] - color[2] * adjustment);
-  return hsluv.hsluvToHex(color);
+  color[2] = clamp100(color[2] - adjustment);
+  return formatColor(color);
 }
 
 function saturate(color, adjustment) {
-  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[1] = clamp100(color[1] + color[1] * adjustment);
-  return hsluv.hsluvToHex(color);
+  color[1] = clamp100(color[1] + adjustment);
+  return formatColor(color);
 }
 
 function desaturate(color, adjustment) {
-  validateAdjustment(adjustment);
   color = getHsluv(color);
-  color[1] = clamp100(color[1] - color[1] * adjustment);
-  return hsluv.hsluvToHex(color);
+  color[1] = clamp100(color[1] - adjustment);
+  return formatColor(color);
 }
 
-function spin(color, adjustment) {
+function rotate(color, adjustment) {
   color = getHsluv(color);
-  var hue = (color[0] + adjustment) % 360;
-  color[0] = hue < 0 ? hue + 360 : hue;
-  return hsluv.hsluvToHex(color);
+  color[0] = clampHue(color[0] + adjustment);
+  return formatColor(color);
+}
+
+function setHue(color, hue) {
+  color = getHsluv(color);
+  color[0] = clampHue(hue);
+  return formatColor(color);
+}
+
+function getHue(color) {
+  return getHsluv(color)[0];
+}
+
+function setSaturation(color, saturation) {
+  color = getHsluv(color);
+  color[1] = clamp100(saturation);
+  return formatColor(color);
+}
+
+function getSaturation(color) {
+  return getHsluv(color)[1];
+}
+
+function setLightness(color, lightness) {
+  color = getHsluv(color);
+  color[2] = clamp100(lightness);
+  return formatColor(color);
+}
+
+function getLightness(color) {
+  return getHsluv(color)[2];
 }
 
 module.exports = {
-  lighten: lighten,
   darken: darken,
-  saturate: saturate,
   desaturate: desaturate,
-  spin: spin,
+  getHsluv: getHsluv,
+  getHue: getHue,
+  getLightness: getLightness,
+  getSaturation: getSaturation,
+  lighten: lighten,
+  rotate: rotate,
+  saturate: saturate,
+  setHue: setHue,
+  setLightness: setLightness,
+  setSaturation: setSaturation,
   useProperties: useProperties
 };
