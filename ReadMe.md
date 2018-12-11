@@ -1,6 +1,6 @@
 # UniTransform
 
-Visually uniform color transformations through HSLuv color space
+Visually **uni**form color **transform**ations through HSLuv color space
 
 ## JavaScript color function library
 
