@@ -13,7 +13,9 @@ function getHsluv(color) {
   return hsluv.rgbToHsluv(
     rgba(color)
       .slice(0, 3)
-      .map(x => x / 255)
+      .map(function(x) {
+        return x / 255;
+      })
   );
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "unitransform",
   "description": "A tiny library for visually uniform color transformations through HSLuv color space",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "maintainers": [
     {
       "name": "Ross Hill",
