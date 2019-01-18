@@ -1,6 +1,6 @@
 # UniTransform
 
-[![CircleCI](https://circleci.com/gh/rosslh/unitransform/tree/master.svg?style=svg)](https://circleci.com/gh/rosslh/unitransform/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/rosslh/unitransform.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/rosslh/unitransform/tree/master.svg?style=shield)](https://circleci.com/gh/rosslh/unitransform/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/rosslh/unitransform.svg)](https://greenkeeper.io/)
 
 Visually **uni**form color **transform**ations through HSLuv color space
 
