@@ -30,7 +30,7 @@
   "homepage": "https://github.com/rosslh/unitransform",
   "repository": "https://github.com/rosslh/unitransform",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^6.0.2"
   },
   "scripts": {
     "test": "mocha test"
