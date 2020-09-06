@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "color-rgba": "^2.1.0",
-    "hsluv": "0.0.3"
+    "hsluv": "0.1.0"
   },
   "keywords": [
     "hsluv",
